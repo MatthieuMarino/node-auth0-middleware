@@ -2,16 +2,16 @@ var request = require('request');
 
 var requestToken = function(code){
 
-    var url = 'https://matthieumarino.eu.auth0.com/oauth/token?' +
-        'client_id=8pWC7g19yIA08vpw3wKYz1cDjpuvbrG2' +
-        '&redirect_uri=http://localhost:3001/login' +
-        '&client_secret=zXa4SOgEwK0IRf7O0XHJE_ZXYnKcIm-4i3KNKbM6Si1TmvEJdILATey62buIUT0k' +
+    var url = 'https://' + process.env.AUTH0_DOMAIN + '/oauth/token?' +
+        'client_id=' + process.env.AUTH0_CLIENT_ID +
+        '&redirect_uri=' + process.env.AUTH0_CALLBACK_URL +
+        '&client_secret=' + process.env.AUTH0_CLIENT_SECRET +
         '&code=' +
         code +
         '&grant_type=authorization_code';
 
     var options = {
-            method: 'post',
+            method: 'POST',
             url: url,
         port:'3000',
             headers: {
@@ -20,7 +20,7 @@ var requestToken = function(code){
         };
 
     request(options, function (err, res, body) {
-        console.log("BOOP");
+        //console.log("BOOP");
         if (err) {
             console.log('Error :', err);
             return

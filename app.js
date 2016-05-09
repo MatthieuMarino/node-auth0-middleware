@@ -58,7 +58,7 @@ app.get('/login/', function(req, res) {
 
 //login page, display auth0 login page, callback is defined in the html
 app.get('/login2/', function(req, res) {
-  res.redirect('https://matthieumarino.eu.auth0.com/authorize/?response_type=code&client_id=8pWC7g19yIA08vpw3wKYz1cDjpuvbrG2&redirect_uri=http://localhost:3001/callback/&state=VALUE_THAT_SURVIVES_REDIRECTS&scope=openid');
+  res.redirect('https://' + process.env.AUTH0_DOMAIN + '/authorize/?response_type=code&client_id=' + process.env.AUTH0_CLIENT_ID + '&redirect_uri=' + process.env.AUTH0_CALLBACK_URL + '&state=VALUE_THAT_SURVIVES_REDIRECTS&scope=openid');
 
 });
 app.use('/secured/test', test);
