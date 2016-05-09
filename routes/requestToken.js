@@ -9,14 +9,15 @@ var requestToken = function(code){
         '&code=' +
         code +
         '&grant_type=authorization_code';
-
+    console.log(url);
     var options = {
             method: 'POST',
             url: url,
         port:'3000',
             headers: {
                 'Content-type': 'application/x-www-form-urlencoded'
-            }
+            },
+        body:{}
         };
 
     request(options, function (err, res, body) {
