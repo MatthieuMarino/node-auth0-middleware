@@ -11,7 +11,7 @@ var requestToken = function(code){
         //'&grant_type=authorization_code';
     //console.log(url);
     var options = {
-            method: 'POST',
+            //method: 'POST',
             url: url,
         port:'3000',
             headers: {
@@ -25,7 +25,7 @@ var requestToken = function(code){
         })
         };
 
-    request(options, function (err, res, body) {
+    request.post(options, function (err, res, body) {
         //console.log("BOOP");
         if (err) {
             console.log('Error :', err);
