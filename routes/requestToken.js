@@ -26,7 +26,7 @@ var requestToken = function(code){
         };
 
     request.post(options, function (err, res, body) {
-        //console.log("BOOP");
+
         if (err) {
             console.log('Error :', err);
             return
